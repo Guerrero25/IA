@@ -24,6 +24,16 @@
 
       $this->db->insert('estudiantes', $this);
     }
+
+    public function crearSesion($user, $password) {
+      $sql = "SELECT * FROM administradores WHERE usuario = ? AND password = ?";
+      $admin = $this->db->query($sql, array($user, $password));
+      if(isset($admin)) {
+        return TRUE;
+      }else{
+        return false;
+      }
+    }
   }
 
 
