@@ -3,11 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <div class="background">
 	<div class="container">
-		<div class="row justify-content-center align-items-center" style="height:70vh">
-			<div class="col-4">
-				<form action="<?= base_url()?>user/signin" method="POST">
+		<div class="row" style="height:70vh">
+			<div class="col-md-4 col-md-offset-4">
+				<form action="<?= base_url()?>Estudiante/signin" method="POST">
 					<div class="card">
-						<div class="card-title">
+						<div class="content">
 							<h1 class="text-center">Bienvenido</h1>
 						</div>
 						<div class="card-body">

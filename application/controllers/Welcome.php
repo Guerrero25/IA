@@ -10,6 +10,10 @@ class Welcome extends CI_Controller {
 
 
 	public function index() {
-		$this->template->model_basic('welcome_message', 'welcome');
+		if(isset($_SESSION['user'])) {
+      $this->template->admin_layout('index', 'admin');
+    }else{
+      $this->template->model_basic('welcome_message', 'welcome');
+    }
 	}
 }
