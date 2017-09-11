@@ -29,7 +29,7 @@
     }
 
     public function nuevo() {
-      $this->template->model_basic('new','estudiante');
+      $this->template->admin_layout('new','estudiante');
     }
 
     public function crear() {

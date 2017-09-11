@@ -21,10 +21,10 @@
         <li class="active"><a href="#">Inicio</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
-            Información de la Universidad <span class="caret"></span>
+            Funciones Universidad <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="#">Programas</a></li>
+            <li><a href="<?=base_url()?>Estudiante/nuevo">Nuevo Estudiante</a></li>
             <li><a href="<?= base_url()?>Estudiante/index">Estudiantes</a></li>
           </ul>
         </li>

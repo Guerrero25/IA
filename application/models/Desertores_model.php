@@ -7,6 +7,6 @@ class Desertores_model extends CI_Model {
   }
 
   public function all() {
-    return $this->db->query("SELECT DISTINCT * FROM `estudiantes` NATURAL JOIN desertores")->result();
+    return $this->db->query("SELECT * FROM estudiantes e INNER JOIN desertores d ON e.id = d.id_estudiante")->result();
   }
 }

@@ -39,6 +39,7 @@
       if($semestre->row()->estado == "matricula" && $estudiante->row()->estado == 1) {
         $this->db->query("INSERT INTO matriculados (id_estudiante,id_semestre) VALUES (".$id.",".$semestre->row()->id.")");
         $this->db->query("UPDATE `estudiantes` SET `estado` = '2' WHERE `estudiantes`.`id` =".$id);
+        $this->db->query("DELETE FROM `desertores` WHERE id_estudiante = ".$id);
         return "Matriculado Correctamente al estudiante ".$estudiante->row()->name." en el semestre ".$semestre->row()->nombre;
       }else{
         return "Hubo un error el estudiante no se pudo matricular!";

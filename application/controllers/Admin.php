@@ -27,6 +27,7 @@ class Admin extends CI_Controller {
 	public function cerrar_matriculas() {
 		if(isset($_SESSION['user'])){
 			$result = $this->semestre_model->cerrar_matriculas();
+			
 			if($result['status'] == "OK"){
 				redirect('/estudiante/index');
 			}else{

@@ -12,7 +12,6 @@
       $this->url_peticion = $this->base.urlencode($address).$this->key;
       $response = file_get_contents($this->url_peticion);
       $response = json_decode($response, true);
-      echo $this->url_peticion;
       $data['lat'] = $response['results'][0]['geometry']['location']['lat'];
       $data['lng'] = $response['results'][0]['geometry']['location']['lng'];
 

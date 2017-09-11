@@ -10,7 +10,7 @@
 
         <table class=table>
           <thead>
-            <tr> <th>#</th> <th>Email</th> <th>Nombre</th> <th>Programa</th></tr>
+            <tr> <th>#</th> <th>Email</th> <th>Nombre</th> <th>Programa</th> <th>Dirección</th></tr>
           </thead>
           <tbody>
             <?foreach ($desertores as $value) {?>
@@ -19,6 +19,7 @@
               <td><?=$value->email?></td>
               <td><?=$value->name?></td>
               <td><?=$value->program?></td>
+              <td><?=$value->address?></td>
             </tr>
             <?}?>
           </tbody>
