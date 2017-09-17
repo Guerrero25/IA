@@ -25,29 +25,18 @@ class Admin extends CI_Controller {
 	}
 
 	public function cerrar_matriculas() {
+		$result = "";
 		if(isset($_SESSION['user'])){
 			$result = $this->semestre_model->cerrar_matriculas();
-			
-			if($result['status'] == "OK"){
-				redirect('/estudiante/index');
-			}else{
-				redirect('/estudiante/index');
-			}
-
-		}else{
-			redirect("/welcome");
 		}
+		$this->output->set_content_type('application/json')->set_output(json_encode($result));
 	}
+
 	public function abrir_matriculas() {
+		$result ="";
 		if(isset($_SESSION['user'])){
 			$result = $this->semestre_model->abrir_matriculas();
-			if($result['status'] == "OK"){
-				redirect('/estudiante/index');
-			}else{
-				redirect('/estudiante/index');
-			}
-		}else{
-			redirect("/welcome");
 		}
+		$this->output->set_content_type('application/json')->set_output(json_encode($result));
 	}
 }

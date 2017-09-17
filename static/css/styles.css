@@ -3,6 +3,34 @@
     height: 100vh;
 }
 
+
+.notificacion {
+  padding: 10px;
+  background-color: #999;
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  height:50px;
+  width: 250px;
+}
+
+.notificacion .mensaje {
+  color: #fff;
+  display: block;
+  position: relative;
+}
+
+.mensaje .cuerpo {
+  position: absolute;
+  left: 0;
+  padding: 2px;
+}
+
+.mensaje .close {
+  position: absolute;
+  right: 0;
+}
+
 header{
 	background: #002E6D;
 	color: #fff;

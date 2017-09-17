@@ -1,3 +1,11 @@
+<!-- Notificaciones -->
+<div class="notificacion" hidden>
+  <div class="mensaje">
+    <div id="nota" class="cuerpo"></div>
+    <div class="close">x</div>
+  </div>
+</div>
+
 <header>
 
   <div class="container-fluid">
@@ -33,8 +41,8 @@
             Control Semestre <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="<?=base_url()?>Admin/cerrar_matriculas">Cerrar Matriculas</a></li>
-            <li><a href="<?= base_url()?>Admin/abrir_matriculas">Abrir Matriculas</a></li>
+            <li><a id="cerrarMatriculas">Cerrar Matriculas</a></li>
+            <li><a id="abrirMatriculas">Abrir Matriculas</a></li>
           </ul>
         </li>
         <li><a href="<?= base_url()?>Desertores/index">Estadísticas de desertores</a></li>

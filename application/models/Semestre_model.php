@@ -15,6 +15,10 @@ class Semestre_model extends CI_Model {
       $result['status'] = 'OK';
       $result['msg'] = "Se abrio nuevo semestre!";
       return $result;
+    }else{
+      $result['status'] = 'ERROR';
+      $result['msg'] = "Matriculas ya estan abiertas";
+      return $result;
     }
   }
 
@@ -40,13 +44,18 @@ class Semestre_model extends CI_Model {
 
 
   private function insertar_desertados($array,$semestre) {
-    $des = "INSERT INTO desertores (id_estudiante, id_semestre) VALUES ";
+    $des = "";
     foreach ($array as $row) {
-      $des .= sprintf("(%s),", $row->id.','.$semestre->row()->id);
+      if($this->db->get_where('desertores', array('id_estudiante' => $row->id))->result() == NULL){
+        $des .= sprintf("(%s),", $row->id.','.$semestre->row()->id);
+      }
     }
     $des = rtrim($des,',');
+    if($des != ""){
+      $des = "INSERT INTO desertores (id_estudiante, id_semestre) VALUES ".$des;
+      $this->db->query($des);
+    }
 
-    $this->db->query($des);
   }
 }
 
