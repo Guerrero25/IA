@@ -25,25 +25,12 @@ function initMap() {
       var markerCluster = new MarkerClusterer(map, markers,
           {imagePath: 'http://localhost/IA/static/img/m'});
     }
-    var locations = [
-      {lat: 10.4064, lng: -75.520},
-      {lat: 10.4054, lng: -75.540},
-      {lat: 10.4040, lng: -75.538},
-      {lat: 10.504, lng: -75.510},
-      {lat: 10.506, lng: -75.510},
-      {lat: 10.508, lng: -75.510},
-      {lat: 10.510, lng: -75.510},
-      {lat: 10.511, lng: -75.510},
-      {lat: 10.4064, lng: -75.520},
-      {lat: 10.4064, lng: -75.520},
-      {lat: 10.4064, lng: -75.520},
-      {lat: 10.4064, lng: -75.520},
-      {lat: 10.4064, lng: -75.520},
-      {lat: 10.4064, lng: -75.520},
-      {lat: 10.4064, lng: -75.520},
-      {lat: 10.4064, lng: -75.520},
-
-    ]
+    var locations = $.ajax({url:'/IA/Admin/geo_desertores',type: 'POST', async:false, success: function (data) {return data; }});
+    locations = JSON.parse(locations.responseText);
+    locations.forEach(function(valor, i,array) {
+      locations[i].lat = parseFloat(locations[i].lat);
+      locations[i].lng = parseFloat(locations[i].lng);
+    });
 </script>
 <script src="<?=base_url()?>static/js/markerclusterer.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeU9ZqJPtlAH7BuwThl6R6sPz7knI7CmE&callback=initMap"></script>
@@ -78,6 +65,27 @@ function initMap() {
       <div class="mapc" style="height:60vh !important;">
         <div id="map" style="height:100% !important;"></div>
       </div>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="panel panel-default">
+				  <!-- Default panel contents -->
+				  <div class="panel-heading">Porcentaje desertados</div>
+
+				  <table class=table>
+				  	<thead>
+				  		<tr> <th>Zona</th> <th>Porcentaje</th> <th>Total Est.</th> </tr>
+				  	</thead>
+				  	<tbody>
+				  		<tr> <th scope=row>1</th> <td>100 %</td> <td>1</td> </tr>
+				  		<tr> <th scope=row>2</th> <td>100 %</td> <td>1</td> </tr>
+							<tr> <th scope=row>3</th> <td>100 %</td> <td>1</td> </tr>
+							<tr> <th scope=row>4</th> <td>0 %</td> <td>0</td> </tr>
+              <tr> <th scope=row>5</th> <td>0 %</td> <td>0</td> </tr>
+				  	</tbody>
+				  </table>
+				</div>
+
     </div>
   </section>
 

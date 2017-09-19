@@ -9,7 +9,7 @@
       parent::__construct();
     }
 
-    public function crear($coop){
+    public function crear($coop,$z){
       $data = array(
         'name' => $this->input->post('name',TRUE),
         'email' => $this->input->post('email',TRUE),
@@ -17,6 +17,7 @@
         'address' => $this->input->post('address', TRUE),
         'lat' => $coop['lat'],
         'lng' => $coop['lng'],
+        'zona' => $z
       );
 
       $this->db->set($data);
@@ -49,6 +50,8 @@
     public function all() {
       return $this->db->query("SELECT * FROM estudiantes")->result();
     }
+
+
   }
 
 

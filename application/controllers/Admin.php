@@ -8,6 +8,7 @@ class Admin extends CI_Controller {
 		$this->load->library('template');
     $this->load->library('session');
 		$this->load->model('semestre_model');
+		$this->load->model('desertores_model');
 	}
 
 
@@ -36,6 +37,14 @@ class Admin extends CI_Controller {
 		$result ="";
 		if(isset($_SESSION['user'])){
 			$result = $this->semestre_model->abrir_matriculas();
+		}
+		$this->output->set_content_type('application/json')->set_output(json_encode($result));
+	}
+
+	public function geo_desertores(){
+		$result ="";
+		if(isset($_SESSION['user'])){
+			$result = $this->desertores_model->geo_desertores();
 		}
 		$this->output->set_content_type('application/json')->set_output(json_encode($result));
 	}

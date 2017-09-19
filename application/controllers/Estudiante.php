@@ -8,6 +8,7 @@
       $this->load->library('template');
       $this->load->model('estudiante_model');
       $this->load->library('session');
+      $this->load->model('zonas_model');
     }
 
     public function signin(){
@@ -36,7 +37,8 @@
       if(isset($_POST['address'])){
         $this->load->library('googlemap');
         $coop = $this->googlemap->calcular_lat($this->input->post('address'));
-        $this->estudiante_model->crear($coop);
+        $z = $this->calcular_zona($this->input->post('address'));
+        $this->estudiante_model->crear($coop, $z);
         redirect("/welcome/index");
       }
     }
@@ -50,6 +52,15 @@
       }
     }
 
+
+    private function calcular_zona($address){
+      $zonas = $this->zonas_model->all();
+      foreach ($zonas as $value) {
+        if ($this->googlemap->calcular_zona($value->lat.','.$value->lng,$address) < 1500) {
+          return $value->id;
+        }
+      }
+    }
   }
 
 

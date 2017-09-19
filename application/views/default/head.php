@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Trabajo IA</title>
-
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" ></script>
     <!-- Styles libraries -->
     <link rel="stylesheet" href="<?= base_url(); ?>static/css/styles.css">
     <!-- Latest compiled and minified CSS -->

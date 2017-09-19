@@ -6,6 +6,7 @@ class Desertores extends CI_Controller {
     parent::__construct();
     $this->load->library('template');
     $this->load->model('desertores_model');
+    $this->load->model('zonas_model');
   }
 
   public function index() {

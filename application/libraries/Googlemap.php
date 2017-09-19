@@ -17,6 +17,12 @@
 
       return $data;
     }
+
+    public function calcular_zona($zona,$address) {
+      $respose = file_get_contents('https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins='.urlencode($zona).'&destinations='.urlencode($address).'&key=YOUR_API_KEYAIzaSyB9NARTZlCRsc4QeaGA0PciA7S_1_QAyUk');
+      $reponse = json_decode($response, true);
+      return $response['rows'][0]['elements'][0]['distance']['value'];
+    }
   }
 
 
